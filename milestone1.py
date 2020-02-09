@@ -304,13 +304,13 @@ def main():
 		#Convert image to greyscale, return RMS pixel brightness.
 		print ("============================== Part 3.1 ===================================\n")
 		print ("Extracting brightness from image, Please wait...")
-		# photos = data['photos']
-		# for i in photos:
-		# 	b = 0
-		# 	if(len(photos[i])>0):
-		# 		img = requests.get(photos[i][0])
-		# 		img = Image.open(BytesIO(img.content))
-		# 		print (brightness(img))
+		photos = data['photos']
+		for i in photos:
+			b = 0
+			if(len(photos[i])>0):
+				img = requests.get(photos[i][0])
+				img = Image.open(BytesIO(img.content))
+				print (brightness(img))
 		print ("Data finished processing.")
 		print ("============================== Part 3.1 End ===================================\n")
 
