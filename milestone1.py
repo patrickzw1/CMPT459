@@ -208,11 +208,11 @@ def number_of_outliers(data):
 	longitude = data['longitude']
 	num_longitude_outliers = 0
 	for i in longitude:
-		if (longitude[i] < 180) or (longitude[i] > 80):
+		if (longitude[i] < -180) or (longitude[i] > 80):
 			num_longitude_outliers += 1
 	my_data['longitude'] = num_longitude_outliers
 	for v in my_data:
-		print("For " + v + ", number of outliers is: " + str(my_data[v]) + "\n")
+		print("For " + str(v),", number of outliers is: " + str(my_data[v]) + "\n")
 
 def brightness( im_file ):
 	im = im_file
@@ -304,20 +304,20 @@ def main():
 		#Convert image to greyscale, return RMS pixel brightness.
 		print ("============================== Part 3.1 ===================================\n")
 		print ("Extracting brightness from image, Please wait...")
-		photos = data['photos']
-		for i in photos:
-			b = 0
-			if(len(photos[i])>0):
-				img = requests.get(photos[i][0])
-				img = Image.open(BytesIO(img.content))
-				print (brightness(img))
+		# photos = data['photos']
+		# for i in photos:
+		# 	b = 0
+		# 	if(len(photos[i])>0):
+		# 		img = requests.get(photos[i][0])
+		# 		img = Image.open(BytesIO(img.content))
+		# 		print (brightness(img))
 		print ("Data finished processing.")
 		print ("============================== Part 3.1 End ===================================\n")
 
 		# =============================== 3.2 =============================
 
 		print ("============================== Part 3.2 ===================================\n")
-		print ("Extracting features from text...")
+		print ("Extracting features from text...\n")
 		f = open("stopwords.txt", "r")
 		content = f.read()
 		stopwords = frozenset(content.split("\n"))
