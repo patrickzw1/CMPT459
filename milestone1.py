@@ -235,7 +235,7 @@ def main():
 
 		draw_histogram(price_data, 10, "Price (with outliers)", "Price ($)", "Frequecny")
 		draw_histogram(latitude_data, 10, "Latitude (with outliers)", "Latitude", "Frequecny")
-		draw_histogram(longitude_data, 10, "Latitude (with outliers)", "longitude", "Frequecny")
+		draw_histogram(longitude_data, 10, "Longitude (with outliers)", "longitude", "Frequecny")
 
 		print ("Now drawing values without the outliers.")
 
