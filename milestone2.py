@@ -170,13 +170,14 @@ def decision_tree():
 		# Export it to csv file for submitting to Kaggle
 		result = pd.DataFrame({"listing_id": test_data_frame["listing_id"].values, "high": predict[:, 0], "medium": predict[:, 2], "low": predict[:, 1]})
 		result.to_csv('decision_tree_result.csv', index=False)
-		print ("\nFile: decision_tree_result.csv generated.\n")
+		print ("\nFile: decision_tree_result.csv generated.")
 		# Draw the decision tree into pdf
 		dot_data = tree.export_graphviz(clf, out_file=None,
 										filled=True, rounded=True,
 										special_characters=True)
 		graph = graphviz.Source(dot_data)
 		graph.render("Decision Tree")
+		print ("\nFile: Decision Tree.pdf generated.")
 
 def SVM():
 	print ('\nRunning SVM...\n')
@@ -256,6 +257,16 @@ def SVM():
 		y_pred_test = clf2.predict(myfeatures_test)
 	
 		y_prob_test = clf2.predict_proba(myfeatures_test)
+
+		y_prob_test2 = y_prob_test
+		#y_prob_test
+		y_prob_test = []
+		for i in range(len(y_prob_test2)):
+			temp = []
+			temp.append(y_prob_test2[i][0])
+			temp.append(y_prob_test2[i][2])   
+			temp.append(y_prob_test2[i][1])
+			y_prob_test.append(temp)
 
 		listing_ids_test = list(data_frame_test['listing_id'].values)
 		i_test = 0
