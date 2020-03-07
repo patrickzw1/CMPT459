@@ -85,7 +85,7 @@ def count_feature_number(feature_names):
 
 def count_feature(data):
 	corpus = data['features'].values
-	with open("text_features.txt", "r") as f:
+	with open("decision_tree_text_features.txt", "r") as f:
 		feature_names = f.read().splitlines()
 
 	for i in range(len(feature_names)):
