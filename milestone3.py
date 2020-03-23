@@ -208,7 +208,7 @@ def random_forest():
 		data_frame['count_feature'] = count_feature(data_frame)
 		test_data_frame['count_feature'] = count_feature(test_data_frame)
 
-		# This part before line 193 is from Resource: https://www.kaggle.com/den3b81/improve-perfomances-using-manager-features
+		# The idea of this part before line 229 is from Resource: https://www.kaggle.com/den3b81/improve-perfomances-using-manager-features
 		# Based on the interest_level to get the manager skill
 		temp = pd.concat([data_frame.manager_id,pd.get_dummies(data_frame['interest_level'])], axis = 1).groupby('manager_id').mean()
 		temp.columns = ['high_frac','low_frac', 'medium_frac']
